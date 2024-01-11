@@ -1,4 +1,4 @@
-import {useState, useEffect, useCallback} from "react";
+import {useState, useCallback, useEffect, useMemo} from "react";
 import PropTypes from "prop-types";
 import { Slider } from "@mui/material";
 
@@ -12,7 +12,7 @@ const monthsDiff = (b, a) => {
 }
 
 export default function MonthsSlider({className, globalDates, setDates}) {
-  const months = monthsDiff(globalDates.min, globalDates.max)
+  const months = useMemo(monthsDiff(globalDates.min, globalDates.max), [globalDates])
   const [monthRange, setMonthRange] = useState([0, months]);
 
   const valueLabelFormat = useCallback((value) => {
@@ -20,7 +20,7 @@ export default function MonthsSlider({className, globalDates, setDates}) {
     const date = new Date()
     date.setMonth(date.getMonth() - diff)
     return date2MonthYear(date)
-  }, [])
+  }, [months])
 
   // Uso useCallback para evitar que se re-declare la función anónima en cada render
   const handleChange = useCallback((event) => {
