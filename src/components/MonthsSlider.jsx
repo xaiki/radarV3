@@ -15,7 +15,6 @@ export default function MonthsSlider({className, globalDates, setDates}) {
   const months = monthsDiff(globalDates.min, globalDates.max)
   const [monthRange, setMonthRange] = useState([0, months]);
 
-  // Esto da una warning en el linter porque no tiene información de tipado.
   const valueLabelFormat = useCallback((value) => {
     const diff = months - value;
     const date = new Date()
@@ -38,7 +37,6 @@ export default function MonthsSlider({className, globalDates, setDates}) {
 
   return (
     <div className={`months-slider ${className ?? ""}`}>
-      {/* Agrega un botón o elemento para cambiar la visibilidad de Filtros */}
       <Slider
         max={months}
         valueLabelDisplay="auto"
