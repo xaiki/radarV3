@@ -4,7 +4,7 @@ import { Slider } from "@mui/material";
 
 import "./MonthsSlider.css";
 
-const date2MonthYear = d => `${d.getMonth()}/${d.getFullYear()}`
+const date2MonthYear = d => `${d.getMonth() + 1}/${d.getFullYear()}`
 const monthsDiff = (b, a) => {
   const yearsDiff = a.getFullYear() - b.getFullYear();
   const monthDiff = a.getMonth() - b.getMonth();
