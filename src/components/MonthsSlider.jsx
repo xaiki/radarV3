@@ -12,7 +12,7 @@ const monthsDiff = (b, a) => {
 }
 
 export default function MonthsSlider({className, globalDates, setDates}) {
-  const months = useMemo(monthsDiff(globalDates.min, globalDates.max), [globalDates])
+  const months = useMemo(() => monthsDiff(globalDates.min, globalDates.max), [globalDates])
   const [monthRange, setMonthRange] = useState([0, months]);
 
   const valueLabelFormat = useCallback((value) => {
