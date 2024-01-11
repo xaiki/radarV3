@@ -193,7 +193,7 @@ function App() {
         <BsAsSource data={departamentosBsAs} style={style.country} />
         <RutasSource data={rutas} style={style.rutas}/>
 
-        {filteredData && filteredData.length && (
+        {!!(filteredData && filteredData.length) && (
           <Markers
             data={filteredData}
             setPopupInfo={setPopupInfo}
